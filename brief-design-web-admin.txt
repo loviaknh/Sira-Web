@@ -1,0 +1,267 @@
+================================================================================
+                    BRIEF DESIGN — SIRA WEB ADMIN (Dashboard Administrateur)
+================================================================================
+
+CONTEXTE DU PROJET :
+Sira est une plateforme de santé numérique pour le Bénin. Le Web Admin est le 
+tableau de bord privé réservé aux administrateurs de la plateforme. Il permet de 
+gérer les utilisateurs (patients, médecins), les établissements de santé, les 
+rendez-vous, les dossiers médicaux, les paiements, les notifications et les 
+fichiers/documents. Ce dashboard est hébergé sur un sous-domaine séparé 
+(admin.sira.bj) et n'est pas accessible au public.
+
+Technologie : Next.js (App Router) + TailwindCSS + TypeScript
+Backend : NestJS API (séparé)
+
+================================================================================
+CHARTE GRAPHIQUE
+================================================================================
+
+Couleurs :
+- Primaire (Vert Santé) : #0FA958 — boutons principaux, liens actifs, sidebar active
+- Secondaire (Jaune/Orange) : #F2A900 — alertes, badges, boutons secondaires
+- Fond page : #F4F6F8 (gris très clair)
+- Fond sidebar : #1A1A1A (noir/gris foncé) ou #FFFFFF (blanc)
+- Fond cartes/tableaux : #FFFFFF
+- Texte principal : #1A1A1A
+- Texte secondaire : #6B7280
+- Danger/Erreur : #EF4444
+- Succès : #0FA958
+- Avertissement : #F2A900
+- Info : #3B82F6
+
+Typographie :
+- Police : Inter (Google Fonts)
+- Tailles : 
+  - H1 : 28px bold
+  - H2 : 22px semibold
+  - H3 : 18px semibold
+  - Corps : 14px regular
+  - Labels : 12px medium uppercase
+
+Style visuel :
+- Dashboard moderne et professionnel (style Vercel / Linear / Stripe Dashboard)
+- Coins arrondis (8px pour les boutons, 12px pour les cartes)
+- Ombres très subtiles (shadow-sm)
+- Espacement généreux entre les éléments
+- Pas de glassmorphism ici — rester net et fonctionnel
+- Micro-animations sur les transitions de page et hover
+
+================================================================================
+STRUCTURE GLOBALE DU LAYOUT
+================================================================================
+
+┌──────────────────────────────────────────────────────────────────┐
+│  SIDEBAR (fixe, gauche)           │  HEADER (fixe, haut)        │
+│                                   │  [Recherche] [🔔] [Avatar]  │
+│  Logo Sira                        ├─────────────────────────────│
+│  ─────────────                    │                             │
+│  📊 Tableau de bord               │                             │
+│  👥 Utilisateurs                  │     CONTENU PRINCIPAL       │
+│  🏥 Patients                      │                             │
+│  🩺 Médecins                      │     (change selon la page)  │
+│  🏢 Établissements                │                             │
+│  📅 Rendez-vous                   │                             │
+│  💳 Paiements                     │                             │
+│  🔔 Notifications                 │                             │
+│  📁 Documents                     │                             │
+│  ─────────────                    │                             │
+│  ⚙️ Paramètres                    │                             │
+│  🚪 Déconnexion                   │                             │
+└──────────────────────────────────────────────────────────────────┘
+
+La sidebar :
+- Largeur : ~250px (desktop), rétractable en icônes seules (~70px)
+- Sur mobile : drawer/tiroir qui s'ouvre par un bouton hamburger
+- Lien actif : fond vert léger (#0FA958 à 10% d'opacité) + texte vert + barre 
+  verticale verte à gauche
+- Icônes + texte pour chaque lien
+- Logo "Sira" en haut (version courte si sidebar rétractée)
+- Séparateur avant Paramètres/Déconnexion
+
+Le header :
+- Barre de recherche globale (placeholder : "Rechercher un patient, médecin...")
+- Icône cloche de notifications (avec badge rouge si notifications non lues)
+- Avatar de l'admin connecté + nom + menu déroulant (Profil, Déconnexion)
+
+================================================================================
+PAGES À DESIGNER
+================================================================================
+
+PAGE 0 : LOGIN (Connexion)
+──────────────────────────
+- Page plein écran, PAS de sidebar
+- Deux colonnes (desktop) :
+  - Gauche : Illustration médicale ou image de fond avec overlay vert
+    - Logo Sira en grand
+    - Texte d'accroche : "Bienvenue sur l'espace d'administration Sira"
+  - Droite : Formulaire de connexion centré
+    - Champ Email
+    - Champ Mot de passe (avec icône œil pour afficher/masquer)
+    - Checkbox "Se souvenir de moi"
+    - Bouton "Se connecter" (vert primaire, pleine largeur)
+    - Lien "Mot de passe oublié ?"
+- Sur mobile : une seule colonne, formulaire centré
+
+PAGE 1 : TABLEAU DE BORD (Dashboard)
+─────────────────────────────────────
+C'est la page principale après connexion.
+
+Rangée 1 — 4 cartes de statistiques :
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+│ 👥 Patients  │ │ 🩺 Médecins  │ │ 📅 RDV       │ │ 💰 Revenus   │
+│    1,247     │ │    89        │ │    156       │ │  2.4M FCFA   │
+│  +12% ▲     │ │  +3% ▲      │ │  +8% ▲      │ │  +15% ▲     │
+└──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘
+
+Chaque carte :
+- Icône à gauche (dans un cercle coloré)
+- Valeur principale en gros (font-size: 28px, bold)
+- Label en dessous (gris)
+- Pourcentage de variation (vert si positif, rouge si négatif) + flèche
+
+Rangée 2 — Graphiques :
+- Graphique principal (2/3 de la largeur) :
+  - "Rendez-vous des 30 derniers jours" 
+  - Graphique en ligne ou barres (couleur verte)
+  - Axe X : jours, Axe Y : nombre de RDV
+- Petit graphique (1/3 de la largeur) :
+  - "Répartition par spécialité"
+  - Graphique en donut/camembert
+  - Légende en dessous
+
+Rangée 3 — Deux tableaux côte à côte :
+- "Derniers patients inscrits" (5 lignes) :
+  - Avatar, Nom, Date d'inscription, Statut
+- "Rendez-vous à venir" (5 lignes) :
+  - Patient, Médecin, Date/Heure, Statut (badge coloré)
+
+PAGE 2 : GESTION DES UTILISATEURS
+──────────────────────────────────
+- Titre : "Utilisateurs" + Bouton "Ajouter un médecin" (vert, en haut à droite)
+- Barre de filtres :
+  - Onglets : Tous | Patients | Médecins | Admins
+  - Barre de recherche
+  - Filtre par statut (Actif / Inactif)
+- Tableau de données :
+  - Colonnes : Avatar+Nom, Email, Rôle (badge), Téléphone, Date inscription, 
+    Statut (badge vert/rouge), Actions (icônes)
+  - Lignes zébrées (alternance blanc / gris très clair)
+  - Pagination en bas (Précédent | 1 2 3 ... 10 | Suivant)
+  - Hover sur une ligne : fond légèrement teinté
+- Actions par ligne : Voir (œil), Modifier (crayon), Supprimer (poubelle rouge)
+
+Modale "Ajouter un médecin" :
+- Formulaire avec : Nom, Prénom, Email, Téléphone, Spécialité (select), 
+  Établissement (select), Numéro d'ordre médical
+- Boutons : Annuler (gris) | Créer (vert)
+
+PAGE 3 : GESTION DES PATIENTS
+──────────────────────────────
+- Même structure que Utilisateurs mais filtré sur les patients
+- Colonnes spécifiques : Nom, Âge, Sexe, Groupe sanguin, Dernière consultation, 
+  Nombre de RDV
+- Clic sur un patient → page détail
+
+PAGE 3b : DÉTAIL D'UN PATIENT
+──────────────────────────────
+- En-tête : Avatar grand + Nom + Âge + Badge statut
+- Onglets : Informations | Dossier médical | Consultations | Documents | Paiements
+- Onglet Informations :
+  - Carte avec infos personnelles (nom, prénom, date naissance, sexe, téléphone, 
+    email, adresse, groupe sanguin, allergies)
+- Onglet Dossier médical :
+  - Timeline verticale des entrées médicales (date, diagnostic, traitement, médecin)
+- Onglet Consultations :
+  - Tableau des consultations passées (date, médecin, motif, diagnostic)
+- Onglet Documents :
+  - Grille de fichiers (icône type + nom + date + taille + bouton télécharger)
+- Onglet Paiements :
+  - Tableau des paiements (date, montant, motif, méthode, statut)
+
+PAGE 4 : GESTION DES MÉDECINS
+──────────────────────────────
+- Tableau : Nom, Spécialité, Établissement, Patients, Consultations, Statut
+- Possibilité de basculer entre vue tableau et vue cartes (grille de cards)
+- Vue carte : Photo + Nom + Spécialité + Établissement + Nombre de patients + 
+  Bouton "Voir profil"
+
+PAGE 5 : GESTION DES ÉTABLISSEMENTS
+────────────────────────────────────
+- Tableau : Nom, Type (Hôpital/Clinique/Centre/Pharmacie), Adresse, Médecins 
+  rattachés, Statut
+- Bouton "Ajouter un établissement"
+- Modale de création : Nom, Type (select), Adresse, Ville, Téléphone, 
+  Coordonnées GPS (lat/lng)
+
+PAGE 6 : GESTION DES RENDEZ-VOUS
+─────────────────────────────────
+- Deux vues avec un toggle :
+  - Vue Tableau : Date, Patient, Médecin, Motif, Statut (badge), Actions
+  - Vue Calendrier : Calendrier mensuel avec les RDV affichés comme des points 
+    ou des blocs colorés
+- Filtres : Par médecin, par statut (En attente/Confirmé/Terminé/Annulé), par date
+- Badges de statut :
+  - En attente : orange (#F2A900)
+  - Confirmé : bleu (#3B82F6)
+  - Terminé : vert (#0FA958)
+  - Annulé : rouge (#EF4444)
+
+PAGE 7 : GESTION DES PAIEMENTS
+───────────────────────────────
+- En-tête : 3 cartes résumé :
+  - "Revenu total" (montant + icône)
+  - "Ce mois-ci" (montant + variation)
+  - "Transactions en attente" (nombre)
+- Tableau : ID Transaction, Patient, Montant (FCFA), Méthode (Mobile Money / 
+  Carte / Espèces), Date, Statut (Payé/En attente/Échoué)
+- Graphique en barres : Revenus par mois (6 derniers mois)
+
+PAGE 8 : NOTIFICATIONS
+───────────────────────
+- Deux sections :
+  1. "Envoyer une notification" :
+     - Formulaire : Destinataire (sélection utilisateur ou "Tous"), Titre, 
+       Message, Type (Info/Alerte/Rappel)
+     - Bouton "Envoyer" (vert)
+  2. "Historique des notifications" :
+     - Tableau : Titre, Message (tronqué), Destinataire, Date, Statut (Lu/Non lu)
+
+PAGE 9 : GESTION DES DOCUMENTS
+───────────────────────────────
+- Grille ou liste de fichiers uploadés
+- Chaque fichier : Icône type (PDF/Image/Doc), Nom, Patient associé, Médecin, 
+  Date upload, Taille, Actions (Voir/Télécharger/Supprimer)
+- Zone de drag-and-drop pour uploader de nouveaux fichiers
+- Filtres : Par type, par patient, par date
+
+PAGE 10 : PARAMÈTRES
+─────────────────────
+- Onglets : Profil | Sécurité | Plateforme
+- Profil : Modifier nom, email, avatar de l'admin
+- Sécurité : Changer mot de passe
+- Plateforme : Paramètres globaux (nom de la plateforme, logo, devise FCFA)
+
+================================================================================
+CONSIGNES IMPORTANTES POUR LE DESIGN
+================================================================================
+
+1. Le dashboard doit être FONCTIONNEL et LISIBLE avant tout
+2. Prioriser la densité d'information sans surcharger visuellement
+3. Utiliser des espaces blancs généreux pour la respiration
+4. Tous les tableaux doivent avoir : tri par colonne, recherche, pagination
+5. Les modales ne doivent jamais être trop grandes (max 600px de large)
+6. Design responsive : sidebar rétractable, tableaux scrollables sur mobile
+7. Mode clair uniquement (pas de dark mode pour l'admin)
+8. Inspiration : Dashboard Stripe, Vercel, Linear, Notion Admin
+
+================================================================================
+LIVRABLES ATTENDUS
+================================================================================
+
+- Maquette haute fidélité de CHAQUE page listée ci-dessus
+- Version desktop (1440px) et mobile (375px) pour chaque page
+- Design de la sidebar en état ouvert et rétracté
+- Design des modales (création médecin, création établissement)
+- Design des états vides ("Aucun patient trouvé", "Aucun rendez-vous")
+- Design des badges et composants récurrents

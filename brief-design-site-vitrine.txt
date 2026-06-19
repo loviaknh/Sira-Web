@@ -1,0 +1,147 @@
+================================================================================
+                    BRIEF DESIGN — SIRA SITE VITRINE (Landing Page)
+================================================================================
+
+CONTEXTE DU PROJET :
+Sira est une plateforme de santé numérique dédiée au Bénin. Elle connecte les 
+patients, les médecins et les établissements de santé via une application mobile 
+et un tableau de bord d'administration web. Le site vitrine est la porte d'entrée 
+publique du projet : il présente Sira, ses fonctionnalités, et incite les 
+visiteurs à télécharger l'application mobile.
+
+Le nom "Sira" vient du Bénin. Le projet s'adresse à la population béninoise 
+et aux professionnels de santé du pays.
+
+================================================================================
+CHARTE GRAPHIQUE
+================================================================================
+
+Couleurs (inspirées des sites institutionnels de l'État du Bénin + santé) :
+- Couleur Primaire (Vert Santé) : #0FA958
+- Couleur Secondaire (Jaune/Orange Institutionnel) : #F2A900
+- Fond principal : #FFFFFF (blanc pur, clinique)
+- Fond secondaire / sections alternées : #F4F6F8 (gris très clair)
+- Texte principal : #1A1A1A (gris anthracite, jamais noir pur)
+- Texte secondaire : #6B7280 (gris moyen)
+
+Typographie :
+- Titres : Police moderne sans-serif (Inter, Outfit ou Poppins)
+- Corps : Inter ou système sans-serif
+- Style général : Propre, aéré, professionnel, inspirant confiance
+
+Style visuel :
+- Design moderne, premium, minimaliste mais pas vide
+- Glassmorphism subtil pour certaines cartes
+- Micro-animations au scroll (fade-in, slide-up)
+- Illustrations médicales modernes (pas de cliparts)
+- Icônes ligne fine (style Lucide ou Phosphor)
+- Coins arrondis (border-radius: 12px à 16px)
+- Ombres douces et subtiles
+
+================================================================================
+PAGES ET SECTIONS À DESIGNER
+================================================================================
+
+PAGE 1 : ACCUEIL (Landing Page principale)
+─────────────────────────────────────────
+
+Section 1 — Hero / En-tête
+- Barre de navigation fixe en haut :
+  - Logo "Sira" à gauche (texte stylisé ou icône + texte)
+  - Liens : Accueil, Fonctionnalités, Comment ça marche, Contact
+  - Bouton CTA : "Télécharger l'App" (vert primaire)
+- Grande section hero avec :
+  - Titre accrocheur : ex. "Votre santé, simplifiée." ou "La santé au bout des doigts."
+  - Sous-titre : Brève description de Sira (2 lignes max)
+  - 2 boutons : "Télécharger sur Google Play" et "Disponible sur l'App Store" 
+    (avec les icônes officielles des stores)
+  - Mockup de l'application mobile (téléphone avec un écran de l'app visible)
+  - Fond avec un léger dégradé vert ou des formes géométriques subtiles
+
+Section 2 — Statistiques / Chiffres clés
+- Bande avec 3-4 compteurs animés :
+  - "+5000 Patients" / "+200 Médecins" / "+50 Établissements" / "24/7 Disponible"
+- Fond coloré (vert primaire avec texte blanc) ou fond blanc avec icônes colorées
+
+Section 3 — Fonctionnalités principales
+- Titre : "Tout ce dont vous avez besoin"
+- Grille de 6 cartes avec icône + titre + description courte :
+  1. Prise de rendez-vous en ligne
+  2. Dossier médical numérique sécurisé
+  3. Téléconsultation avec un médecin
+  4. Ordonnances numériques
+  5. Suivi de traitements et rappels
+  6. Localisation des établissements de santé
+- Chaque carte avec une icône verte, un fond blanc, une ombre légère
+
+Section 4 — Comment ça marche
+- Titre : "Simple comme 1, 2, 3"
+- 3 étapes horizontales reliées par une ligne pointillée :
+  1. "Téléchargez l'app" (icône téléphone)
+  2. "Créez votre profil" (icône utilisateur)
+  3. "Prenez rendez-vous" (icône calendrier)
+- Chaque étape avec un cercle numéroté (vert) et une illustration
+
+Section 5 — Témoignages
+- Titre : "Ils nous font confiance"
+- Carrousel de 3 témoignages :
+  - Photo (avatar rond), nom, rôle (Patient / Médecin), citation
+  - Étoiles de notation
+- Fond gris clair (#F4F6F8)
+
+Section 6 — Pour les professionnels de santé
+- Section dédiée aux médecins :
+  - Titre : "Vous êtes professionnel de santé ?"
+  - Description : "Rejoignez Sira et gérez vos patients, rendez-vous et 
+    consultations depuis un tableau de bord dédié."
+  - Bouton : "Rejoindre en tant que médecin" (orange secondaire)
+  - Illustration d'un médecin utilisant un ordinateur
+
+Section 7 — Call-to-Action final
+- Grande section avec fond dégradé (vert → vert foncé)
+- Titre : "Prêt à prendre soin de votre santé ?"
+- Boutons App Store et Google Play (version blanche)
+- QR Code pour télécharger directement
+
+Section 8 — Footer
+- Logo Sira + description courte
+- Colonnes de liens :
+  - Produit : Fonctionnalités, Tarifs, FAQ
+  - Légal : CGU, Politique de confidentialité, Mentions légales
+  - Contact : Email, Téléphone, Adresse au Bénin
+- Réseaux sociaux (Facebook, Instagram, Twitter/X, LinkedIn)
+- Copyright : "© 2026 Sira. Tous droits réservés."
+
+PAGE 2 : MENTIONS LÉGALES / CGU
+─────────────────────────────────
+- Page simple avec texte structuré
+- Même header et footer que l'accueil
+
+PAGE 3 : CONTACT
+─────────────────
+- Formulaire de contact (Nom, Email, Sujet, Message)
+- Informations de contact (adresse au Bénin, téléphone, email)
+- Carte Google Maps intégrée (optionnel)
+
+================================================================================
+CONSIGNES IMPORTANTES POUR LE DESIGN
+================================================================================
+
+1. Le design doit inspirer CONFIANCE (c'est de la santé)
+2. Les couleurs doivent évoquer le Bénin (vert + jaune/orange)
+3. Pas de design surchargé — rester épuré et professionnel
+4. Le CTA principal partout = "Télécharger l'application"
+5. Responsive : penser mobile-first, le site doit être beau sur téléphone
+6. Pas de bouton de connexion admin sur ce site (l'admin est sur un sous-domaine séparé)
+7. Les images/illustrations doivent représenter des personnes africaines/béninoises
+8. Le site doit donner une impression "officielle" et "gouvernementale" tout en 
+   restant moderne et accessible
+
+================================================================================
+LIVRABLES ATTENDUS
+================================================================================
+
+- Maquette haute fidélité de la page d'accueil (desktop + mobile)
+- Maquette de la page contact
+- Guide des composants utilisés (boutons, cartes, typographie)
+- Toutes les sections mentionnées ci-dessus

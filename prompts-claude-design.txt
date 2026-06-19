@@ -1,0 +1,105 @@
+================================================================================
+        PROMPTS À COPIER-COLLER DANS CLAUDE DESIGN (un par conversation)
+================================================================================
+
+
+========================
+PROMPT 1 — SITE VITRINE
+========================
+
+Voici le brief de design pour le site vitrine de "Sira", une plateforme de santé numérique pour le Bénin. 
+
+Crée des maquettes haute fidélité complètes pour ce site en respectant strictement la charte graphique décrite dans le brief (vert #0FA958, orange/jaune #F2A900, blanc, gris anthracite).
+
+Le fichier joint contient :
+- Le contexte complet du projet
+- La charte graphique (couleurs, typographie, style visuel)
+- Toutes les sections de la page d'accueil à designer
+- Les pages secondaires (Contact, Mentions légales)
+- Les consignes spécifiques (représentation béninoise, pas de bouton admin, CTA vers les stores mobiles)
+
+Je veux :
+1. La page d'accueil complète en version desktop (1440px) et mobile (375px)
+2. La page Contact
+3. Un design moderne, premium, qui inspire confiance dans le domaine de la santé
+4. Des illustrations représentant des personnes africaines/béninoises
+
+[JOINDRE : brief-design-site-vitrine.txt]
+
+
+===========================
+PROMPT 2 — WEB ADMIN
+===========================
+
+Voici le brief de design pour le tableau de bord d'administration de "Sira", une plateforme de santé numérique pour le Bénin.
+
+Crée des maquettes haute fidélité pour CHAQUE page du dashboard admin en respectant la charte graphique décrite dans le brief (vert #0FA958, orange/jaune #F2A900, fond gris clair #F4F6F8, cartes blanches).
+
+Le fichier joint contient :
+- Le contexte complet du projet
+- La charte graphique détaillée
+- Le layout global (sidebar + header) avec schéma ASCII
+- 10 pages complètes à designer (Login, Dashboard, Utilisateurs, Patients, Détail Patient, Médecins, Établissements, Rendez-vous, Paiements, Notifications, Documents, Paramètres)
+- Les composants récurrents (tableaux, modales, badges, cartes stats)
+- Les consignes de style (inspiration Stripe/Vercel/Linear)
+
+Je veux :
+1. Chaque page en version desktop (1440px)
+2. La page de Login (plein écran, 2 colonnes)
+3. Le Dashboard avec les 4 cartes stats, les graphiques et les tableaux
+4. Les pages de gestion avec tableaux de données, filtres et pagination
+5. Les modales de création (médecin, établissement)
+6. Un design fonctionnel, lisible, professionnel — style dashboard SaaS moderne
+
+[JOINDRE : brief-design-web-admin.txt]
+
+
+==============================
+PROMPT 3 — APPLICATION MOBILE
+==============================
+
+Voici le brief de design pour l'application mobile "Sira", une plateforme de santé numérique pour le Bénin destinée aux patients et médecins.
+
+Crée des maquettes haute fidélité pour CHAQUE écran de l'application mobile en respectant la charte graphique décrite dans le brief (vert #0FA958, orange/jaune #F2A900, fond blanc, coins arrondis).
+
+Le fichier joint contient :
+- Le contexte complet du projet
+- La charte graphique détaillée
+- La navigation principale (Tab Bar avec 4 onglets)
+- 8 flux utilisateur complets avec ~25 écrans détaillés :
+  * Onboarding (splash + 3 slides)
+  * Authentification (login, inscription, OTP, compléter profil)
+  * Accueil (services, prochain RDV, médecins populaires)
+  * Prise de rendez-vous (spécialité → médecin → date → confirmation)
+  * Dossier médical (consultations, ordonnances, documents)
+  * Profil utilisateur (infos, paiements, paramètres)
+  * Notifications
+  * Localisation d'établissements (carte + liste)
+- Les consignes spécifiques (monnaie FCFA, format +229, illustrations béninoises)
+- Les états à designer (normal, vide, chargement, erreur)
+
+Je veux :
+1. Chaque écran en format mobile (390px iOS / 360px Android)
+2. Le flux complet de prise de rendez-vous (c'est le parcours principal)
+3. L'écran d'accueil avec tous ses composants
+4. Le dossier médical avec la timeline
+5. Un design simple, accessible, chaleureux — pas trop technique
+6. Des illustrations représentant des personnes africaines/béninoises
+7. Un prototype interactif si possible
+
+[JOINDRE : brief-design-app-mobile.txt]
+
+
+================================================================================
+CONSEIL D'UTILISATION
+================================================================================
+
+→ Ouvrez 3 conversations séparées dans Claude Design (une par application)
+→ Copiez le prompt correspondant et joignez le fichier .txt associé
+→ Si Claude Design génère un premier écran, demandez-lui de continuer 
+  avec les écrans suivants en disant : "Continue avec les écrans suivants 
+  du brief"
+→ Si vous voulez des modifications, dites simplement : "Modifie [élément] 
+  en [changement souhaité]"
+
+================================================================================
